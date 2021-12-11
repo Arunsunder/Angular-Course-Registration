@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
@@ -8,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrarComponent implements OnInit {
 
   constructor() { }
+  isShown:boolean=true;
 
   ngOnInit(): void {
+  }
+  
+  ShowHide(){
+    this.isShown=!this.isShown;
   }
 
 }
