@@ -1,0 +1,121 @@
+
+<form [formGroup]="courseform" (ngSubmit)="onSubmit(courseform)">
+
+        <div class="row">
+  
+        <div class="col-md-4">
+        </div>
+  
+        <div class="form-group col-md-4" >
+          <label for="coursename">CourseName</label>
+  
+           <div class="input-group">
+           <input type="text" class="form-control" id="cname" formControlName="coursename">
+           <span class="input-group-text"><i class="bi bi-book"></i></span>
+          </div>
+  
+        </div>
+  
+        <div class="col-md-4">
+        </div>
+  
+      </div>
+  
+      <div class="row">
+          <div class="col-md-4">
+          </div>
+  
+          <div class="form-group col-md-4">
+  
+            <label for="courseduration">CourseDuration</label>
+  
+            <div class="input-group">
+            <input type="text" class="form-control" id="cduration" formControlName="duration">
+            <span class="input-group-text"><i class="bi bi-clock"></i></span>
+            </div>
+            
+          </div>
+  
+          <div class="col-md-4">
+          </div>
+      </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+        <div class="form-group col-md-4">
+
+          <label for="coursefees">CourseFees</label>
+
+          <div class="input-group">
+          <input type="text" class="form-control" id="cfee" formControlName="fees">
+          <span class="input-group-text"><i class="bi bi-coin"></i></span>
+          </div>
+          
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+        <div class="form-group col-md-4">
+
+          <label for="coursecapacity">CourseCapacity</label>
+
+          <div class="input-group">
+          <input type="text" class="form-control" id="ccapacity" formControlName="capacity">
+          <span class="input-group-text"><i class="bi bi-people"></i></span>
+          </div>
+          
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+        <div class="form-group col-md-4">
+
+          <label for="seat">SeatAvailable</label>
+
+          <div class="input-group">
+          <input type="text" class="form-control" id="cseat" formControlName="seatavailable">
+          <span class="input-group-text"><i class="bi bi-person-dash"></i></span>
+          </div>
+          
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+  
+    <br>
+      <div class="row">
+          <div class="col-md-3">
+          </div>
+  
+          <div class="form-group col-md-6">
+          <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+              <button class="btn btn-primary" [routerLink]="['/registrar']" >Add</button>
+            </div>
+            <div class="col-md-5"></div>
+          </div> 
+          </div>
+  
+          <div class="col-md-3">
+          </div>
+        </div>
+  
+  </form>
