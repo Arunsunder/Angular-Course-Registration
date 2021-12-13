@@ -1,8 +1,8 @@
-<form class="col-lg-6 offset-lg-4">
-    <div class="ms-3 mt-2 col-lg-6" >
+<form class="col-lg-6 offset-lg-4" [formGroup]="registrarlogin"  (ngSubmit)="onSubmit(registrarlogin)">
+    <div class="ms-3 mt-2 col-lg-6"  >
       <label for="reg_name" class="form-label">Name</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="reg_name" placeholder="Ex.Joe">
+        <input type="text" class="form-control" id="reg_name" placeholder="Ex.Joe" formControlName="registrarname">
         <span class="input-group-text"><i class="bi bi-person"></i></span>
       </div>
     </div>
@@ -11,7 +11,7 @@
     <div class="ms-3 mt-2 col-lg-6">
       <label for="reg_mobilenumber" class="form-label">Mobile number</label>
       <div class="input-group">         
-        <input type="text" class="form-control" id="reg_mobilenumber" placeholder="918945789630">
+        <input type="text" class="form-control" id="reg_mobilenumber" placeholder="918945789630" formControlName="registrarmobile">
         <span class="input-group-text"><i class="bi bi-telephone"></i></span>
       </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="ms-3 mt-2 col-lg-6">
       <label for="reg_dob" class="form-label">Date of Birth</label>
       <div class="input-group">
-        <input type="date" class="form-control" id="reg_dob" placeholder="02-03-2000">
+        <input type="date" class="form-control" id="reg_dob" placeholder="02-03-2000" formControlName="registrardob">
       </div>
     </div>
 
@@ -28,7 +28,7 @@
     <div class="ms-3 mt-2 col-lg-6">
       <label for="reg_email" class="form-label">Email address</label>
       <div class="input-group">
-        <input type="email" class="form-control" id="reg_email" placeholder="joe@hotmail.com">
+        <input type="email" class="form-control" id="reg_email" placeholder="joe@hotmail.com" formControlName="registraremail">
         <span class="input-group-text"><i class="bi bi-envelope"></i></span>
       </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="ms-3 mt-2 col-lg-6">
         <label for="reg_exp" class="form-label">Year Of Experience</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="reg_exp">
+          <input type="text" class="form-control" id="reg_exp" formControlName="registrarexperience">
         </div>
     </div>
   
@@ -44,7 +44,7 @@
     <div class="ms-3 mt-2 col-lg-6">
       <label for="reg_password" class="form-label">Password</label>
       <div class="input-group">
-        <input type="password" class="form-control" id="reg_password">
+        <input type="password" class="form-control" id="reg_password" formControlName="registrarpassword">
         <span class="input-group-text"><i class="bi bi-lock"></i></span>
       </div>
     </div>
@@ -57,7 +57,7 @@
 
 
     <div class="ms-3 mt-2">
-      <button type="submit" class="btn btn-primary" [routerLink]="['/admin']">Add</button>
+      <button type="submit" class="btn btn-primary" >Add</button>
     </div>
     
   </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-studentsignup',
@@ -8,8 +9,10 @@ import { FormControl,FormGroup } from '@angular/forms';
 })
 export class StudentsignupComponent implements OnInit {
 
-  constructor() { }
   studentlogin!:FormGroup
+  
+  constructor(private route:Router) { }
+
   DataID:number=0;
   ngOnInit(): void {
     this.studentlogin=new FormGroup({
@@ -22,6 +25,12 @@ export class StudentsignupComponent implements OnInit {
   }
 
   Submit(form:FormGroup){
+  
+    
+    alert("student Record inserted succcessfully")
+    console.log(form.value)
+    this.route.navigate(['']);
+    
     let formValues={
        Name:this.studentlogin.value.input,
        MobileNumber:this.studentlogin.value.input,
