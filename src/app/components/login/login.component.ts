@@ -9,28 +9,22 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loginform!: FormGroup;
+  constructor(private route:Router) { }
+
   
-
-  constructor(private route:Router,private builder:FormBuilder) { }
-
-  username = new FormControl('', [Validators.required,Validators.minLength(5)]);
-
-  password = new FormControl('', [Validators.required]);
-
   ngOnInit(): void {
     this.loginform=new FormGroup({
-      logoption:new FormControl(),
-      //username:new FormControl(),
-      //password:new FormControl()
+      logoption:new FormControl('',[Validators.required]),
+      username:new FormControl('', [Validators.required, Validators.email]),
+      password:new FormControl('',[Validators.required, Validators.minLength(8)])
     });
   }
 
-  loginform: FormGroup=this.builder.group({
-    username:this.username,
-    password:this.password
-  })
+  get f(){
+    return this.loginform.controls;
+  }
 
- 
   onSubmit(form:FormGroup){
     const loginoption=form.value['logoption'];
     if(loginoption==='admin'){

@@ -8,13 +8,18 @@
     <div class="form-group col-md-4" >
       <label for="username">Login As</label>
 
-      <select class="form-select" formControlName="logoption" required="Please select this value">
-        <option selected>Must select one</option>
+      <select class="form-select" formControlName="logoption">
+        <option disabled selected value> -- Select an option -- </option>
         <option value="admin">Admin</option>
         <option value="registrar">Registrar</option>
         <option value="student">Student</option>
       </select>
-    </div>
+
+      
+      <div *ngIf="f['logoption'].touched && f['logoption'].invalid" class="alert alert-danger">
+        <div *ngIf="f['logoption'].errors && f['logoption'].errors['required']">must select one</div>
+      </div>
+      </div>
 
     <div class="col-md-4">
     </div>
@@ -30,21 +35,17 @@
 
       <div class="form-group col-md-4" >
         <label for="username">UserName</label>
-
-         <div class="input-group">
+         
+        <div class="input-group">
          <input type="text" class="form-control" id="uname" placeholder="Ex.Joe@gmail.com" formControlName="username">
          <span class="input-group-text"><i class="bi bi-person"></i></span>
         </div>
-        
-        <div *ngIf="!username?.valid && (username?.dirty ||username?.touched || username?.untouched)">
-        <div [hidden]="!username.hasError('required')">
-          First Name is required
-        </div>
-        <div [hidden]="!username.hasError('minlength')">
-          Min Length is 10
-        </div>
+
+        <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
+          <div *ngIf="f['username'].errors && f['username'].errors['required']">Email is required.</div>
+          <div *ngIf="f['username'].errors && f['username'].errors['email']">Enter valid email address.</div>
       </div>
-        
+    
 
       </div>
 
@@ -65,6 +66,12 @@
           <input type="password" class="form-control" id="pwd" formControlName="password">
           <span class="input-group-text"><i class="bi bi-lock"></i></span>
           </div>
+
+          <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+          <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+          <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password should be minimum 8 characters</div>
+        </div>
+      
           
         </div>
 
@@ -82,7 +89,6 @@
 
         <label for="Signup">New Student:</label>
         <a id="forgot-link" [routerLink]="['/studentsignup']">SignUp?</a>
-           
       </div>
 
       <div class="col-md-4">
@@ -100,7 +106,7 @@
           <div class="col-md-5"></div>
           <div class="col-md-2">
 
-            <button type="submit" class="btn btn-primary">Login</button> 
+            <button type="submit" class="btn btn-primary" [disabled]="loginform.invalid">Login</button> 
           </div>
           <div class="col-md-5"></div>
         </div> 
