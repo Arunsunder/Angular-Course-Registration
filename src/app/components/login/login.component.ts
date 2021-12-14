@@ -1,6 +1,6 @@
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
       password:new FormControl()
     });
   }
- 
+
+
   onSubmit(form:FormGroup){
     const loginoption=form.value['logoption'];
     if(loginoption==='admin'){
