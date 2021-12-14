@@ -1,6 +1,6 @@
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -9,17 +9,27 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginform!: FormGroup;
+  
 
-  constructor(private route:Router) { }
+  constructor(private route:Router,private builder:FormBuilder) { }
+
+  username = new FormControl('', [Validators.required,Validators.minLength(5)]);
+
+  password = new FormControl('', [Validators.required]);
 
   ngOnInit(): void {
     this.loginform=new FormGroup({
       logoption:new FormControl(),
-      username:new FormControl(),
-      password:new FormControl()
+      //username:new FormControl(),
+      //password:new FormControl()
     });
   }
+
+  loginform: FormGroup=this.builder.group({
+    username:this.username,
+    password:this.password
+  })
+
  
   onSubmit(form:FormGroup){
     const loginoption=form.value['logoption'];

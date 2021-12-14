@@ -8,7 +8,7 @@
     <div class="form-group col-md-4" >
       <label for="username">Login As</label>
 
-      <select class="form-select" formControlName="logoption">
+      <select class="form-select" formControlName="logoption" required="Please select this value">
         <option selected>Must select one</option>
         <option value="admin">Admin</option>
         <option value="registrar">Registrar</option>
@@ -35,6 +35,16 @@
          <input type="text" class="form-control" id="uname" placeholder="Ex.Joe@gmail.com" formControlName="username">
          <span class="input-group-text"><i class="bi bi-person"></i></span>
         </div>
+        
+        <div *ngIf="!username?.valid && (username?.dirty ||username?.touched || username?.untouched)">
+        <div [hidden]="!username.hasError('required')">
+          First Name is required
+        </div>
+        <div [hidden]="!username.hasError('minlength')">
+          Min Length is 10
+        </div>
+      </div>
+        
 
       </div>
 
