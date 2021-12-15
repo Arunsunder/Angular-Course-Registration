@@ -4,6 +4,9 @@
       <div class="input-group">
         <input type="text" class="form-control" id="stud_name" placeholder="Ex.Joe" formControlName="studentname">
         <span class="input-group-text"><i class="bi bi-person"></i></span>
+        <div *ngIf="f['studentname'].touched && f['studentname'].invalid" class="alert alert-danger">
+          <div *ngIf="f['studentname'].errors && f['studentname'].errors['required']">Name is required.</div>
+        </div>
       </div>
     </div>
   
@@ -13,6 +16,12 @@
       <div class="input-group">         
         <input type="text" class="form-control" id="stud_mobilenumber" placeholder="918945789630" formControlName="studentmobile">
         <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+
+        <div *ngIf="f['studentmobile'].touched && f['studentmobile'].invalid" class="alert alert-danger">
+          <div *ngIf="f['studentmobile'].errors && f['studentmobile'].errors['required']">Mobile Number is required.</div>
+          
+        </div>
+
       </div>
     </div>
   
@@ -30,6 +39,10 @@
       <div class="input-group">
         <input type="email" class="form-control" id="stud_email" placeholder="joe@hotmail.com" formControlName="studentemail">
         <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+        <div *ngIf="f['studentemail'].touched && f['studentemail'].invalid" class="alert alert-danger">
+          <div *ngIf="f['studentemail'].errors && f['studentemail'].errors['required']">Email is required.</div>
+          <div *ngIf="f['studentemail'].errors && f['studentemail'].errors['email']">Enter valid email address.</div> 
+        </div>
       </div>
     </div>
   
@@ -38,7 +51,11 @@
       <div class="input-group">
         <input type="password" class="form-control" id="stud_password" formControlName="studentpassword">
         <span class="input-group-text"><i class="bi bi-lock"></i></span>
-      </div>
+        <div *ngIf="f['studentpassword'].touched && f['studentpassword'].invalid" class="alert alert-danger">
+          <div *ngIf="f['studentpassword'].errors && f['studentpassword'].errors['required']">Password is required.</div>
+          <div *ngIf="f['studentpassword'].errors && f['studentpassword'].errors['minlength']">Password should be minimum 8 characters</div>
+        </div>
+        </div>
     </div>
   
   

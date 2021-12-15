@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,28 +16,24 @@ export class StudentsignupComponent implements OnInit {
   DataID:number=0;
   ngOnInit(): void {
     this.studentlogin=new FormGroup({
-      studentname :new FormControl(),
-      studentemail:new FormControl(),
-      studentmobile:new FormControl(),
+      studentname :new FormControl('',[Validators.required]),
+      studentemail:new FormControl('',[Validators.required,Validators.email]),
+      studentmobile:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       studentdob:new FormControl(),
-      studentpassword:new FormControl()
+      studentpassword:new FormControl('',[Validators.required, Validators.minLength(8)])
     });
   }
 
+  get f(){
+    return this.studentlogin.controls;
+  }
+
   Submit(form:FormGroup){
-  
-    
+
     alert("student Record inserted succcessfully")
     console.log(form.value)
     this.route.navigate(['']);
     
-    let formValues={
-       Name:this.studentlogin.value.input,
-       MobileNumber:this.studentlogin.value.input,
-       Email:this.studentlogin.value.input,
-       DOB:this.studentlogin.value.input,
-       Password:this.studentlogin.value.input
-    }
   }
 
 }

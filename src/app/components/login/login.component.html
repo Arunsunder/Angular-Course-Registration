@@ -17,7 +17,7 @@
 
       
       <div *ngIf="f['logoption'].touched && f['logoption'].invalid" class="alert alert-danger">
-        <div *ngIf="f['logoption'].errors && f['logoption'].errors['required']">must select one</div>
+          <div *ngIf="f['logoption'].errors && f['logoption'].errors['required']">must select one</div>
       </div>
       </div>
 
@@ -42,8 +42,9 @@
         </div>
 
         <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
-          <div *ngIf="f['username'].errors && f['username'].errors['required']">Email is required.</div>
-          <div *ngIf="f['username'].errors && f['username'].errors['email']">Enter valid email address.</div>
+        <div *ngIf="f['username'].errors && f['username'].errors['required']">Email is required.</div>
+        <div *ngIf="f['username'].errors && f['username'].errors['email']">Enter valid email address.</div>
+      
       </div>
     
 
